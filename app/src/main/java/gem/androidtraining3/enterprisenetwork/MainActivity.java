@@ -2,20 +2,30 @@ package gem.androidtraining3.enterprisenetwork;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+
+import com.google.gson.Gson;
+
+import gem.androidtraining3.enterprisenetwork.fragment.HomeFragment;
+import gem.androidtraining3.enterprisenetwork.model.ResponseUserInfo;
+import gem.androidtraining3.enterprisenetwork.util.Util;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public HomeFragment homeFragment;
+    TextView tvUserName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        String json = getIntent().getStringExtra("userInfo");
+        ResponseUserInfo responseUserInfo = (new Gson()).fromJson(json,ResponseUserInfo.class);
+        tvUserName = (TextView)findViewById(R.id.tvUserName);
+        tvUserName.setText("User: "+responseUserInfo.getUsername());
+
     }
 
     @Override
@@ -98,5 +115,18 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            Util.ONBACKPRESS = true;
+
+            finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

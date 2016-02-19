@@ -19,4 +19,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+
+
+
+    <string name="dialog_title_error">Lỗi</string>
+    <string name="dialog_content_server_problem">Server đang tạm thời bị lỗi, bạn thử lại sau.</string>
+    <string name="dialog_title_common">Thông báo</string>
+    <string name="dialog_title_content_network_problem">Không có kết nối mạng</string>
 </resources>
