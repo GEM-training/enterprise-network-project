@@ -3,8 +3,9 @@ package gem.androidtraining3.enterprisenetwork.api;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import gem.androidtraining3.enterprisenetwork.model.ResponseUserInfo;
+import gem.androidtraining3.enterprisenetwork.model.ResponseDTO;
 import gem.androidtraining3.enterprisenetwork.model.UserInfo;
+import gem.androidtraining3.enterprisenetwork.util.Constant;
 import gem.androidtraining3.enterprisenetwork.util.Util;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -13,6 +14,8 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
@@ -46,11 +49,10 @@ public class RestClient {
     public interface UserAPI {
         @Headers("Content-Type:application/json")
         @POST("/login")
-        Call<ResponseUserInfo> login(@Body UserInfo user);
+        Call<ResponseDTO> login(@Body UserInfo user);
 
-
-//        @GET("/logout")
-//        Call<ResponseUserInfo> logout(@Header(Constant.STRING_ACCESS_TOKEN) String access_token);
+        @GET("/logoutuser")
+        Call<ResponseDTO> logout(@Header(Constant.token) String access_token);
 
     }
 }

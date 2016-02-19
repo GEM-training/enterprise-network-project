@@ -17,7 +17,7 @@ public class Util {
     public static boolean LOGGED_IN = false;
     public static final String ServerURL = "http://172.16.10.67:8080";
 
-    public static boolean ONBACKPRESS=false;
+    public static boolean DOUBLEBACK =false;
 
 
 

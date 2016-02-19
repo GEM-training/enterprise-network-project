@@ -2,10 +2,18 @@ package gem.androidtraining3.enterprisenetwork;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
-import gem.androidtraining3.enterprisenetwork.util.Util;
+import com.google.gson.Gson;
+import com.google.gson.stream.JsonReader;
+
+import java.io.StringReader;
+
+import gem.androidtraining3.enterprisenetwork.model.ResponseUserInfo;
+import gem.androidtraining3.enterprisenetwork.session.Session;
+import gem.androidtraining3.enterprisenetwork.util.Constant;
 
 /**
  * Created by huylv on 17/02/2016.
@@ -13,21 +21,30 @@ import gem.androidtraining3.enterprisenetwork.util.Util;
 public class SplashActivity extends Activity {
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 1000;
+    boolean LOGGEDIN = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        //check login
+        SharedPreferences sp = getSharedPreferences(Constant.NSP,MODE_PRIVATE);
+        LOGGEDIN = sp.contains(Constant.SPKEY_USERJSON);
+        if(LOGGEDIN){
+            Gson gson = new Gson();
+            String s = sp.getString(Constant.SPKEY_USERJSON, "null");
+            JsonReader jsonReader = new JsonReader(new StringReader(s));
+            jsonReader.setLenient(true);
+            ResponseUserInfo responseUserInfo = gson.fromJson(jsonReader, ResponseUserInfo.class);
+
+            Session.setUser(responseUserInfo);
+        }
+
         new Handler().postDelayed(new Runnable() {
-
-            /*
-             * Showing splash screen with a timer. This will be useful when you
-             * want to show case your app logo / company
-             */
-
             @Override
             public void run() {
-                if(Util.LOGGED_IN){
+                if(LOGGEDIN){
                     Intent i = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(i);
                 }else{

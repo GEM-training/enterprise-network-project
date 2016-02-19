@@ -38,8 +38,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import gem.androidtraining3.enterprisenetwork.api.RestClient;
+import gem.androidtraining3.enterprisenetwork.model.ResponseDTO;
 import gem.androidtraining3.enterprisenetwork.model.ResponseUserInfo;
 import gem.androidtraining3.enterprisenetwork.model.UserInfo;
+import gem.androidtraining3.enterprisenetwork.session.Session;
 import gem.androidtraining3.enterprisenetwork.util.Constant;
 import gem.androidtraining3.enterprisenetwork.util.Util;
 import retrofit2.Call;
@@ -89,7 +91,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         setContentView(R.layout.activity_login);
 
         sharedpreferences = this.getSharedPreferences(
-                Constant.nameSharedPreferences, Context.MODE_PRIVATE);
+                Constant.NSP, Context.MODE_PRIVATE);
         editor = sharedpreferences.edit();
 
         // Set up the login form.
@@ -197,11 +199,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mEmailView.setError(getString(R.string.error_field_required));
             focusView = mEmailView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
-            cancel = true;
         }
+//        else if (!isEmailValid(email)) {
+//            mEmailView.setError(getString(R.string.error_invalid_email));
+//            focusView = mEmailView;
+//            cancel = true;
+//        }
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -362,18 +365,30 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         RestClient.UserAPI userAPI = RestClient.getClient();
-        Call<ResponseUserInfo> call = userAPI.login(new UserInfo(username,password,deviceId));
-        call.enqueue(new Callback<ResponseUserInfo>() {
+        Call<ResponseDTO> call = userAPI.login(new UserInfo(username,password,deviceId));
+        call.enqueue(new Callback<ResponseDTO>() {
             @Override
-            public void onResponse(Call<ResponseUserInfo> call, Response<ResponseUserInfo> response) {
+            public void onResponse(Call<ResponseDTO> call, Response<ResponseDTO> response) {
                 if (response.isSuccess()) {
-//                    Util.showErrorDialog(LoginActivity.this,response.message()+response.body());
                     Util.LOGGED_IN=true;
+
+                    //put user info to intent
                     Intent i = new Intent(LoginActivity.this,MainActivity.class);
                     Gson gson = new Gson();
-                    String json = gson.toJson((ResponseUserInfo)response.body());
+                    ResponseDTO responseDTO  = (ResponseDTO) response.body();
+
+                    ResponseUserInfo responseUserInfo = gson.fromJson(gson.toJson(responseDTO.getReturnObject()),ResponseUserInfo.class);
+
+                    Session.setUser(responseUserInfo);
+                    String json = gson.toJson(responseDTO);
                     i.putExtra("userInfo",json);
+
+                    //save to SP
+                    SharedPreferences sp = getSharedPreferences(Constant.NSP,MODE_PRIVATE);
+                    sp.edit().putString(Constant.SPKEY_USERJSON,json).commit();
+
                     startActivity(i);
+                    finish();
                 }else{
                     try {
                         Util.showErrorDialog(LoginActivity.this,response.message()+response.errorBody().string());
@@ -384,12 +399,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
 
             @Override
-            public void onFailure(Call<ResponseUserInfo> call, Throwable t) {
+            public void onFailure(Call<ResponseDTO> call, Throwable t) {
                 Util.showErrorDialog(LoginActivity.this,"failure:"+t.getMessage());
             }
         });
-
-
     }
 
 }
