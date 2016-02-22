@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding">
+
+    <RelativeLayout
+        android:id="@+id/home_search_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_500"
+        android:padding="1dp">
+
+        <EditText
+            android:id="@+id/home_search_et"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/white"
+            android:hint="@string/prompt_search"
+            android:maxLines="1"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_total_enterprise_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_search_rl">
+
+        <TextView
+            android:id="@+id/home_total_enterprises_number_tv"
+            android:layout_width="@dimen/number_textview_width"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@id/home_total_enterprise_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_sample"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_total_enterprise_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_enterprises"
+            android:textColor="@color/blue" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_number_of_enterprises_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_total_enterprise_rl">
+
+        <TextView
+            android:id="@+id/home_total_customers_tv"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/green"
+            android:gravity="center_vertical"
+
+            android:text="@string/prompt_total_customers"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/home_number_of_enterprises_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_below="@id/home_total_customers_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_of_enterprises"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_number_of_enterprises_number_tv"
+            android:layout_width="@dimen/number_textview_width"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/home_number_of_enterprises_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_sample"
+            android:textColor="@color/blue" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/home_number_of_staffs_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/home_number_of_enterprises_rl">
+
+        <TextView
+            android:id="@+id/home_active_customers_tv"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/green"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_active_customers"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/home_number_of_staffs_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28"
+            android:layout_below="@+id/home_active_customers_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_of_staffs"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_number_of_staffs_number_tv"
+            android:layout_width="@dimen/number_textview_width"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/home_number_of_staffs_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_sample"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_number_of_customers_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_below="@+id/home_number_of_staffs_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_of_customers"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_number_of_customers_number_tv"
+            android:layout_width="@dimen/number_textview_width"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/home_number_of_customers_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_sample"
+            android:textColor="@color/blue" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_total_online_time_hours_rl"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/home_number_of_staffs_rl">
+
+        <TextView
+            android:id="@+id/home_total_online_time_tv"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@color/green"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_total_online_time"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/home_total_online_time_hours_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_below="@+id/home_total_online_time_tv"
+            android:gravity="center_vertical"
+
+            android:text="@string/prompt_total_online_time_hours"
+            android:textColor="@color/blue" />
+
+        <TextView
+            android:id="@+id/home_total_online_time_hours_number_tv"
+            android:layout_width="@dimen/number_textview_width"
+            android:layout_height="28dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/home_total_online_time_hours_tv"
+            android:gravity="center_vertical"
+            android:text="@string/prompt_number_sample"
+            android:textColor="@color/blue" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/home_refresh_bt"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_refresh_black_24dp" />
+
+        <Button
+            android:id="@+id/home_centre_bt"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/ic_people_black_24dp" />
+
+        <Button
+            android:id="@+id/home_right_bt"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_apps_black_24dp" />
+    </RelativeLayout>
+</RelativeLayout>

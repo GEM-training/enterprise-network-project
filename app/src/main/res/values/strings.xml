@@ -20,11 +20,24 @@
         completions."
     </string>
 
-
-
-
     <string name="dialog_title_error">Lỗi</string>
     <string name="dialog_content_server_problem">Server đang tạm thời bị lỗi, bạn thử lại sau.</string>
     <string name="dialog_title_common">Thông báo</string>
     <string name="dialog_title_content_network_problem">Không có kết nối mạng</string>
+
+    <!--String related to home main-->
+    <string name="prompt_search">Search</string>
+    <string name="prompt_number_sample">100</string>
+    <string name="prompt_enterprises">enterprises</string>
+    <string name="prompt_total_customers">Total customers</string>
+    <string name="prompt_number_of_enterprises">Number of enterprises:</string>
+    <string name="prompt_active_customers">Active customers</string>
+    <string name="prompt_number_of_staffs">Number of staffs:</string>
+    <string name="prompt_number_of_customers">Number of customers</string>
+    <string name="prompt_total_online_time">Total online time</string>
+    <string name="prompt_total_online_time_hours">Total online time (hours):</string>
+
+    <!--String related to Online Enterprises-->
+    <string name="online_enterprises">Online Enterprises</string>
+
 </resources>
