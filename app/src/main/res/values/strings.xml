@@ -40,4 +40,24 @@
     <!--String related to Online Enterprises-->
     <string name="online_enterprises">Online Enterprises</string>
 
+    <!--string related to edit info-->
+    <string name="title">Title:</string>
+    <string name="first">First*:</string>
+    <string name="middle">Middle:</string>
+    <string name="last">Last*:</string>
+    <string name="suffix">Suffix:</string>
+    <string name="email">Email:</string>
+    <string name="phone">Phone:</string>
+    <string name="country">Country:</string>
+    <string name="street">Stree:</string>
+    <string name="city">City:</string>
+    <string name="state">State:</string>
+    <string name="zip">Zip:</string>
+    <string name="store_name">Store name</string>
+    <string name="store_address">Store address</string>
+    <string name="welcome_greeting">Welcome to Enterprise Network</string>
+    <string name="email_sample">dangquanuet@gmail.com</string>
+    <string name="welcome_guide">Navigating Around the Enterprise Network</string>
+    <string name="welcome_guide_2">Tap the icon on the button right corner\nto select a working module.</string>
+    <string name="switch_account">switch Account</string>
 </resources>

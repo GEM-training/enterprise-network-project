@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/welcome_greeting_rl"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/light_blue_800">
+
+        <TextView
+            android:id="@+id/welcome_greeting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/welcome_greeting"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/welcome_email_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/welcome_greeting_tv"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/email_sample"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/welcome_button_rl"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/grey_100"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="navi" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/welcome_guide_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/welcome_button_rl"
+        android:layout_below="@id/welcome_greeting_rl">
+
+        <ImageView
+            android:id="@+id/welcome_guide_screen_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:foregroundGravity="center" />
+
+        <TextView
+            android:id="@+id/welcome_guide_text_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/welcome_guide"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/welcome_guide_text_2_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome_guide_text_tv"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/welcome_guide_2" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

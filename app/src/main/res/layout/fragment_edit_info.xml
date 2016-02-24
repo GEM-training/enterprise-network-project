@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding">
+
+        <RelativeLayout
+            android:id="@+id/edit_info_picture_rl"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/grey_200"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/edit_info_picture_iv"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:background="@drawable/ic_perm_identity_black_24dp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/edit_info_first_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="center_vertical"
+                android:text="@string/first" />
+
+            <EditText
+                android:id="@+id/edit_info_first_et"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/edit_info_middle_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="center_vertical"
+                android:text="@string/middle" />
+
+            <EditText
+                android:id="@+id/edit_info_middle_et"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/edit_info_last_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:gravity="center_vertical"
+                android:text="@string/last" />
+
+            <EditText
+                android:id="@+id/edit_info_last_et"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_gravity="center_vertical"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
